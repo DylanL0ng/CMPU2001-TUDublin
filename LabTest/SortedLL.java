@@ -1,5 +1,12 @@
-package LabTest;
-// Sorted linked list with a sentinel node for lab test 2023
+/*
+ *  Title: SortedLL
+ *  Author: Dylan Hussain (C21331063)
+ *  Description: 
+ *  Sorted linked list with a sentinel node for Lab Test 2023
+ *  Inserts the average of pair nodes between them and inserts
+ *  elements into a doubly linked list
+ */
+
 // Skeleton code
 
 import java.util.Scanner;
@@ -43,7 +50,6 @@ class SortedLL
         }
         else
         {
-            t.prev = prev;
             prev.next = t;           
         }
              
@@ -86,28 +92,27 @@ class SortedLL
         }
     }
 
-
     // 30 %
     public void insertDLL(int x){
-        Node curr, t;
+        Node prev, curr, t;
         t = new Node();
         t.data = x;
         
-        z.data = x; curr = head;
-
+        z.data = x; prev = null; curr = head;
         while(curr.data < x) {
+            prev = curr;
             curr = curr.next;
         }
-
         t.next = curr;
-        if(curr.prev == null) 
+        
+        if(prev == null) 
         {
             head = t;
         }
         else
         {
-            t.prev = curr.prev;
-            curr.prev.next = t;  
+            t.prev = prev;
+            prev.next = t;
         }
     }
     
@@ -121,7 +126,6 @@ class SortedLL
         }
         System.out.println("Z\n");
     }
-    
 
     public static void main(String args[])   
     {
